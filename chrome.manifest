@@ -1,0 +1,10 @@
+content	change-profile	content/
+
+overlay	chrome://browser/content/browser.xul	chrome://change-profile/content/overlay.xul
+
+locale	change-profile	en-US	locale/en-US/
+locale	change-profile	ja	locale/ja/
+
+skin	change-profile	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://change-profile/skin/overlay.css
+style	chrome://browser/content/browser.xul	chrome://change-profile/skin/overlay.css

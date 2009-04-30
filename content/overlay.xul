@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://change-profile/locale/overlay.dtd">
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  id="change-profile-overlay">
+  <script type="application/x-javascript"
+    src="chrome://change-profile/content/overlay.js"/>
+
+  <menupopup id="menu_FilePopup">
+    <menuitem id="menu_change-profile"
+      label="&change-profile.command.label;"
+      accesskey="&change-profile.command.accesskey;"
+      insertbefore="menu_FileQuitItem"
+      oncommand="changeProfile.change();"/>
+  </menupopup>
+
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="change-profile-button"
+      class="toolbarbutton-1"
+      label="&change-profile.command.label;"
+      tooltiptext="&change-profile.command.tooltip;"
+      oncommand="changeProfile.change();"/>
+  </toolbarpalette>
+</overlay>

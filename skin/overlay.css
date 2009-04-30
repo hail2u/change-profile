@@ -1,0 +1,7 @@
+#change-profile-button {
+  list-style-image: url("chrome://change-profile/skin/toolbarbutton-icon-large.png");
+}
+
+toolbar[iconsize="small"] #change-profile-button {
+  list-style-image: url("chrome://change-profile/skin/toolbarbutton-icon-small.png");
+}

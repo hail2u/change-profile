@@ -1,0 +1,3 @@
+<!ENTITY change-profile.command.label     "プロファイルの切り替え">
+<!ENTITY change-profile.command.accesskey "H">
+<!ENTITY change-profile.command.tooltip   "プロファイルを切り替えてFirefoxを再起動します">
