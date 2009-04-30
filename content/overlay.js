@@ -2,23 +2,35 @@ var changeProfile = {
   change: function () {
     var fxDir = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("CurProcD", Components.interfaces.nsIFile);
     var fx = fxDir;
-    var os = navigator.platform.toLowerCase();
+    var os = this.getOSName();
 
-    if (os.match(/^win/)) {
-      fx.append("firefox.exe");
-    } else if (os.match(/^mac/)) {
-      fx.append("firefox-bin");
-    } else if (os.match(/^linux/)) {
-      fx.append("firefox");
-    } else {
-      alert("Is this Firefox?");
-      return;
+    switch (os) {
+      case "winnt":
+        fx.append("firefox.exe");
+        break;
+
+      case "darwin":
+        fx.append("firefox-bin");
+        break;
+
+      case "linux":
+        fx.append("firefox");
+        break;
+
+      default:
+        alert("Is this Firefox?");
+        return;
     }
 
     var process = Components.classes["@mozilla.org/process/util;1"].getService(Components.interfaces.nsIProcess);
-    var args = ["-P", "-no-remote"];
     process.init(fx);
-    process.run(false, args, args.length);
-    window.setTimeout(goQuitApplication, 500);
+    process.run(false, ["-P", "-no-remote"], 2);
+    window.setTimeout(goQuitApplication, 1000);
+  },
+
+  getOSName: function () {
+    var xulRuntime = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime);
+
+    return xulRuntime.OS.toLowerCase();
   }
 };
